@@ -16,11 +16,11 @@ from telebot.types import ReplyKeyboardMarkup, KeyboardButton
 
 loop = asyncio.get_event_loop()
 
-TOKEN = '7518378929:AAFVq96cIzJUufnLEISX2vevMeQneC0UnHA'
+TOKEN = '7545411905:AAHKE-Euc8WYlCAn0q1XvR3Jletaw5thRUg'
 MONGO_URI = 'mongodb+srv://VENOMxCRAZY:CRAZYxVENOM@cluster0.ythilmw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0&tlsAllowInvalidCertificates=true'
-FORWARD_CHANNEL_ID = -4511543718
-CHANNEL_ID = -4511543718
-error_channel_id = -4511543718
+FORWARD_CHANNEL_ID = -1002222667426
+CHANNEL_ID = -1002222667426
+error_channel_id = -1002222667426
 
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
 
@@ -115,11 +115,11 @@ def approve_or_disapprove_user(message):
 
     if action == '/approve':
         if plan == 1:  # Instant Plan 🧡
-            if users_collection.count_documents({"plan": 1}) >= 99:
+            if users_collection.count_documents({"plan": 1}) >= 99999:
                 bot.send_message(chat_id, "*Approval failed: Instant Plan 🧡 limit reached (99 users).*", parse_mode='Markdown')
                 return
         elif plan == 2:  # Instant++ Plan 💥
-            if users_collection.count_documents({"plan": 2}) >= 499:
+            if users_collection.count_documents({"plan": 2}) >= 49999:
                 bot.send_message(chat_id, "*Approval failed: Instant++ Plan 💥 limit reached (499 users).*", parse_mode='Markdown')
                 return
 
@@ -151,11 +151,11 @@ def attack_command(message):
             bot.send_message(chat_id, "You are not approved to use this bot. Please contact the administrator.")
             return
 
-        if user_data['plan'] == 1 and users_collection.count_documents({"plan": 1}) > 99:
+        if user_data['plan'] == 1 and users_collection.count_documents({"plan": 1}) > 99999:
             bot.send_message(chat_id, "Your Instant Plan 🧡 is currently not available due to limit reached.")
             return
 
-        if user_data['plan'] == 2 and users_collection.count_documents({"plan": 2}) > 499:
+        if user_data['plan'] == 2 and users_collection.count_documents({"plan": 2}) > 49999:
             bot.send_message(chat_id, "Your Instant++ Plan 💥 is currently not available due to limit reached.")
             return
 
@@ -175,11 +175,11 @@ def attack_command(message):
             bot.send_message(chat_id, "*You are not approved to use this bot. Please contact the administrator.*", parse_mode='Markdown')
             return
 
-        if user_data['plan'] == 1 and users_collection.count_documents({"plan": 1}) > 99:
+        if user_data['plan'] == 1 and users_collection.count_documents({"plan": 1}) > 99999:
             bot.send_message(chat_id, "*Your Instant Plan 🧡 is currently not available due to limit reached.*", parse_mode='Markdown')
             return
 
-        if user_data['plan'] == 2 and users_collection.count_documents({"plan": 2}) > 499:
+        if user_data['plan'] == 2 and users_collection.count_documents({"plan": 2}) > 49999:
             bot.send_message(chat_id, "*Your Instant++ Plan 💥 is currently not available due to limit reached.*", parse_mode='Markdown')
             return
 
